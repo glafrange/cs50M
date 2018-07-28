@@ -14,15 +14,21 @@ let count = 1;
 
 function displayTodos() {
   list.innerHTML = "";
-  todos.forEach(todo => {
-    list.innerHTML += "<li class='todo-container'><span>" + todo + "</span><button class='delete'>X</button></li>";
+  todos.forEach((todo, i) => {
+    list.innerHTML += "<li class='todo-container' id=" + i + "><input type='checkbox'" + (todo.checked === true ? 'checked' : '') + "/><span>" + todo.todo + "</span><button class='delete'>X</button></li>";
   });
+  uncheckedCountSpan.textContent = numUncheckedTodos();
   addEventListeners();
 }
 
 function newTodo() {
-  todos.push("Todo " + count);
+  let todo = "Todo " + count;
+  todos.push({
+    todo: todo,
+    checked: false
+  });
   count++;
+  itemCountSpan.textContent = parseInt(itemCountSpan.textContent) + 1;
   displayTodos();
 }
 
@@ -31,6 +37,7 @@ function deleteTodo(e) {
     return !(todo == e.target.parentNode.firstChild.textContent);
   });
   console.log(e.target.parentNode.firstChild.textContent);
+  itemCountSpan.textContent = parseInt(itemCountSpan.textContent) - 1;
   displayTodos();
 }
 
@@ -38,4 +45,14 @@ function addEventListeners() {
   list.querySelectorAll("button").forEach(button => {
     button.addEventListener("click", deleteTodo);
   });
+  list.querySelectorAll("input").forEach(checkBox => {
+    checkBox.addEventListener("change", function(e) {
+      todos[parseInt(e.target.parentNode.getAttribute("id"))].checked = e.target.checked;
+      uncheckedCountSpan.textContent = numUncheckedTodos();
+    });
+  });
+}
+
+function numUncheckedTodos() {
+  return Array.from(list.querySelectorAll("input")).filter(checkBox => checkBox.checked === false).length;
 }
