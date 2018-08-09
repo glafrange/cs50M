@@ -11,20 +11,22 @@ export default class App extends React.Component {
   }
 
   updateTime = (newTime) => {
-    this.setState({
-      time: newTime
-    });
+    if (!isNaN(parseInt(newTime))) {
+      this.setState({
+        time: newTime
+      });
+    }
   }
 
   componentWillMount = () => {
-    this.updateTime(15);
+    this.updateTime(5);
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Timer style={styles.timer} time={this.state.time}/>
-        <TimeInput updateTime={this.updateTime}/>
+        <TimeInput style={styles.timeInput} updateTime={this.updateTime}/>
       </View>
     );
   }
@@ -44,5 +46,9 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  timeInput: {
+    height: 40,
+    borderColor: "gray"
   }
 });

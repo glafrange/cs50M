@@ -9,7 +9,7 @@ export default class TimeInput extends React.Component {
   render() {
     return (
       <View>
-        <TextInput onChangeText={(text) => this.props.updateTime(text)}/>
+        <TextInput style={this.props.style} onEndEditing={(e) => this.props.updateTime(e.nativeEvent.text)}/>
       </View>
     )
   }
