@@ -11,9 +11,13 @@ export default class Timer extends React.Component {
   }
 
   componentDidMount = () => {
+    this.startTimer();
+  }
+
+  startTimer = () => {
     this.setState({
       intervalID: setInterval(() => this.decrement(), 1000)
-    })
+    });
   }
 
   decrement = () => {

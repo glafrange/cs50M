@@ -2,15 +2,33 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {vibrate} from './utils';
 import Timer from './components/timer';
+import TimeInput from './components/timeinput';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  updateTime = (newTime) => {
+    this.setState({
+      time: newTime
+    });
+  }
+
+  componentWillMount = () => {
+    this.updateTime(15);
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Timer style={styles.timer} time="10"/>
+        <Timer style={styles.timer} time={this.state.time}/>
+        <TimeInput updateTime={this.updateTime}/>
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
