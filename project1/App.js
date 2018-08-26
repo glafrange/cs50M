@@ -11,19 +11,18 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      // <View style={styles.container}>
         <Timer time={60}/>
-      </View>
+      // </View>
     );
   }
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 20,
-    backgroundColor: '#8CD9B1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     flexDirection: 'column',
+//     backgroundColor: '#8CD9B1'
+//   }
+// });

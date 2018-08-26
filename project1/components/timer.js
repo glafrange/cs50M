@@ -70,29 +70,48 @@ export default class Timer extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.timer}>
           <Text>{this.state.timerType}</Text>
           <Text>{this.state.time}</Text>
         </View>
-        <View>
-          <Button title={this.state.toggleButtonText} onPress={this.toggleTimer}></Button>
-          <Button title="Reset" onPress={this.resetTimer}></Button>
+        <View style={styles.buttons}>
+          <View style={{height: 20}}>
+            <Button title={this.state.toggleButtonText} style={styles.button} onPress={this.toggleTimer}></Button>
+          </View>
+          <View style={{height: 20}}>
+            <Button title="Reset" style={styles.button} onPress={this.resetTimer}></Button>
+          </View>
         </View>
-        <TextInput style={styles.timeInput} onEndEditing={(e) => this.updateTime(parseInt(e.nativeEvent.text))}/>
+        <View style={styles.timeInput}>
+          <TextInput onEndEditing={(e) => this.updateTime(parseInt(e.nativeEvent.text))}/>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#8CD9B1'
+  },
   timer: {
-    backgroundColor: '#C1A7E1',
+    flex: 2,
+    paddingTop: 30,
     alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: '#8CD9B1'
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center'
   },
   timeInput: {
-    height: 40,
+    flex: 1,
+    justifyContent: 'center',
     borderColor: "gray"
   }
 });
