@@ -1,38 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import SearchPage from './Components/SearchPage.js';
+import MoviePage from './Components/MoviePage.js';
+
+const AppNavigator = createStackNavigator(
+  {
+    SearchPage: SearchPage,
+    MoviePage: MoviePage
+  },
+  {
+    initialRouteName: 'SearchPage'
+  }
+);
 
 export default class App extends React.Component {
   render() {
+    console.log("search");
     return (
-      <View>
-        <SearchPage />
-      </View>
+      <AppNavigator />
     );
-  }
-}
-
-class SearchPage extends React.Component {
-  state = {
-    text: ""
-  }
-
-  handleTextChange = (text) => {
-    this.setState({text: text});
-    console.log(text);
-  }
-
-  componentWillMount = () => {
-    fetch('http://www.omdbapi.com/?apikey=d2043b23&t=clerks')
-      .then(res => res.json())
-      .then(res => console.log(res));
-  }
-
-  render() {
-    return (
-      <View style={{paddingTop: 100}}>
-        <TextInput style={{height: 40}} onChangeText={this.handleTextChange}/>
-      </View>
-    )
   }
 }
 
@@ -44,3 +31,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
