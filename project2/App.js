@@ -16,7 +16,6 @@ const AppNavigator = createStackNavigator(
 
 export default class App extends React.Component {
   render() {
-    console.log("search");
     return (
       <AppNavigator />
     );
