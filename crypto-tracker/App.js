@@ -1,12 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { createStackNavigator } from 'react-navigation';
+import CryptoList from 'containers/cryptoList';
+import AddTicker from 'containers/addTicker';
+
+// const store = createStore();
+
+// const AppNavigator = createStackNavigator(
+//   {
+//     cryptoList: cryptoList,
+//     addTicker: addTicker
+//   },
+//   {
+//     initialRouteName: "cryptoList"
+//   }
+// )
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <CryptoList />
     );
   }
 }
