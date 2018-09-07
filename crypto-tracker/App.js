@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { createStackNavigator } from 'react-navigation';
-import CryptoList from 'containers/cryptoList';
-import AddTicker from 'containers/addTicker';
+import CryptoList from './containers/CryptoList';
+// import AddTicker from 'containers/addTicker';
 
 // const store = createStore();
 
