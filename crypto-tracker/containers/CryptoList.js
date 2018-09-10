@@ -9,7 +9,7 @@ const testData = [{ticker:"BTC", price:6432.68}, {ticker:"ETH", price:227.58}];
 export default class CryptoList extends React.Component {
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={{paddingTop: 10}}>
         <FlatList 
           data={testData}
           keyExtractor={(cryptoData, index) => cryptoData.ticker}
