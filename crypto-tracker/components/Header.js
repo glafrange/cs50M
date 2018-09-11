@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
       display: "flex",
       marginTop: 55,
       alignItems: "center",
+      justifyContent: "center"
   },
   header: {
       fontWeight: "bold",        

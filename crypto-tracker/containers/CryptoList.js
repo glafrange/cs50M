@@ -11,15 +11,30 @@ class CryptoList extends React.Component {
     this.props.FetchCoinData();
   }
 
+  renderListItems = () => {
+    const {crypto} = this.props;
+    return crypto.data.map((cryptoData, index) => {
+      return (
+      <CryptoListItem 
+        key={index}
+        cryptoData={cryptoData}
+      />
+      )
+    });
+  }
+
   render() {
     // console.log(this.props.crypto);
     return (
-      <ScrollView style={{paddingTop: 10}}>
-        <FlatList 
-          data={this.props.crypto}
-          keyExtractor={(cryptoData, index) => cryptoData.name}
-          renderItem={({item}) => <CryptoListItem cryptoData={item} />}
-        />
+      // <ScrollView style={{paddingTop: 10, marginBottom: 10, paddingBottom: 10}}>
+        // <FlatList
+        //   data={this.props.crypto}
+        //   keyExtractor={(cryptoData, index) => cryptoData.name}
+        //   renderItem={({item}) => <CryptoListItem cryptoData={item} />}
+        // />
+      // </ScrollView>
+      <ScrollView style={{paddingTop:20, paddingBottom: 100}}>
+        {this.renderListItems()}
       </ScrollView>
     );
   }
@@ -27,7 +42,7 @@ class CryptoList extends React.Component {
 
 function mapStateToProps (state) {
   console.log(state);
-  return { crypto: state.crypto.data }
+  return { crypto: state.crypto }
 }
 
 export default connect(mapStateToProps, { FetchCoinData })(CryptoList)

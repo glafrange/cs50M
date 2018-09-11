@@ -10,7 +10,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={Store}>
-        <View>
+        <View style={{flex:1}}>
           <Header />
           <CryptoList />
         </View>
