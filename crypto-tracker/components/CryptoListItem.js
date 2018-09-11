@@ -1,15 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class CryptoListItem extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>{this.props.cryptoData.ticker} : {this.props.cryptoData.price}</Text>
-      </View>
-    )
-  }
-}
+const CryptoListItem = (props) => {
+  return (
+    <View style={styles.container}>
+      <Text>{props.cryptoData.name} : {props.cryptoData.quotes.USD.price}</Text>
+    </View>
+  )
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +17,5 @@ const styles = StyleSheet.create({
     borderColor: 'black'
   }
 });
+
+export default CryptoListItem;
