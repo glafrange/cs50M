@@ -23,10 +23,6 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <AppNavigator />
-        {/* <View style={{flex:1}}>
-          <Header />
-          <CryptoList />
-        </View> */}
       </Provider>
     );
   }

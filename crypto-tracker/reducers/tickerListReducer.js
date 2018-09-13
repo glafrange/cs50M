@@ -8,14 +8,12 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  let newdata;
   switch (action.type) {
     case ADD_TICKER:
-      newData = [...state.data, ...action.payload];
-      return { tickers: newData };
+      // debugger;
+      return { tickers: [...state.tickers, action.ticker] };
     case REMOVE_TICKER:
-      newData = state.data.splice(state.data.indexOf(action.payload), 1);
-      return { tickers: newData };
+      return { tickers: state.tickers.splice(state.data.indexOf(action.ticker), 1) };
     default:
       return { ...state };
   }

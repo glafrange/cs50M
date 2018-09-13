@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import crypto from './crypto';
-import tickerList from './tickerList';
+import tickerListReducer from './tickerListReducer';
 
 export default combineReducers({
   crypto: crypto,
-  tickerList: tickerList
+  tickerList: tickerListReducer
 })

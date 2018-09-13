@@ -11,6 +11,10 @@ class CryptoList extends React.Component {
     this.props.FetchCoinData();
   }
 
+  componentDidUpdate() {
+    if (!this.props.crypto.updated) { this.props.FetchCoinData() }
+  }
+
   renderListItems = () => {
     const {crypto} = this.props;
     return crypto.data.map((cryptoData, index) => {
@@ -33,8 +37,8 @@ class CryptoList extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log(state.crypto.data);
-  return { crypto: state.crypto }
+  // console.log(state.tickerList.tickers);
+  return { crypto: state.crypto, tickerList: state.tickerList }
 }
 
 export default connect(mapStateToProps, { FetchCoinData })(CryptoList)
