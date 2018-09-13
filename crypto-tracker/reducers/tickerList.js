@@ -12,10 +12,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TICKER:
       newData = [...state.data, ...action.payload];
-      return { data: newData };
+      return { tickers: newData };
     case REMOVE_TICKER:
       newData = state.data.splice(state.data.indexOf(action.payload), 1);
-      return { data: newData };
+      return { tickers: newData };
     default:
       return { ...state };
   }
