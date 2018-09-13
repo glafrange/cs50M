@@ -5,14 +5,20 @@ import {
 } from '../utils/actionTypes';
 
 export default function FetchCoinData() {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const apiUrlStart = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=";
+    const apiUrlEnd = "&tsyms=USD";
+    state = getState();
 
     dispatch({ type: FETCHING_COIN_DATA });
 
-    fetch("https://api.coinmarketcap.com/v2/ticker/?limit=30")
+    fetch(apiUrlStart + state.tickerList.tickers.join(",") + apiUrlEnd)
       .then(res => res.json())
       .then(res => {
-        dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: Object.keys(res.data).map(key => res.data[key]) })
+        console.log(res);
+        dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: Object.keys(res).map(key => {
+          return {ticker: key, price: res[key].USD};
+        })})
       })
       .catch(err => {
         dispatch({ type: FETCHING_COIN_DATA_FAILURE, payload: err.data })

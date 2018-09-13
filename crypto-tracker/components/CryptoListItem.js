@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const CryptoListItem = (props) => {
   return (
     <View style={styles.container}>
-      <Text>{props.cryptoData.name} : {props.cryptoData.quotes.USD.price}</Text>
+      <Text>{props.cryptoData.ticker} : {props.cryptoData.price}</Text>
     </View>
   )
 };

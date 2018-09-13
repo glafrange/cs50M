@@ -24,15 +24,7 @@ class CryptoList extends React.Component {
   }
 
   render() {
-    // console.log(this.props.crypto);
     return (
-      // <ScrollView style={{paddingTop: 10, marginBottom: 10, paddingBottom: 10}}>
-        // <FlatList
-        //   data={this.props.crypto}
-        //   keyExtractor={(cryptoData, index) => cryptoData.name}
-        //   renderItem={({item}) => <CryptoListItem cryptoData={item} />}
-        // />
-      // </ScrollView>
       <ScrollView style={{paddingTop:20, paddingBottom: 100}}>
         {this.renderListItems()}
       </ScrollView>
@@ -41,7 +33,7 @@ class CryptoList extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log(state);
+  console.log(state.crypto.data);
   return { crypto: state.crypto }
 }
 

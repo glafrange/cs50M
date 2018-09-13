@@ -9,14 +9,9 @@ const initialState = {
   data: [],
   hasError: false,
   errorMessage: null
-}
+};
 
 export default (state = initialState, action) => {
-  // const testData = [{ticker:"BTC", price:6432.68}, {ticker:"ETH", price:227.58}];
-  // return [...state, ...testData];
-
-  console.log(action.payload);
-
   switch (action.type) {
     case FETCHING_COIN_DATA:
       return {
@@ -45,5 +40,4 @@ export default (state = initialState, action) => {
     default:
       return {...state};
   }
-
 }
