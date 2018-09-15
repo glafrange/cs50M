@@ -6,16 +6,16 @@ import AddNewTicker from '../actions/AddNewTicker';
 import FetchCoinData from '../actions/FetchCoinData';
 
 class AddTicker extends React.Component {
-  handleClick = () => {
-    this.props.AddNewTicker("LTC");
+  submitTicker = () => {
+    this.props.AddNewTicker(this.state.text);
     this.props.FetchCoinData();
   }
 
   render() {
     return (
       <View>
-        <TextInput style={{paddingTop: 50}}/>
-        <TouchableOpacity onPress={this.handleClick}>
+        <TextInput style={{paddingTop: 50}} onChangeText={(text) => this.setState({text: text.toUpperCase()})}/>
+        <TouchableOpacity onPress={this.submitTicker}>
           <Text>AddTicker</Text>
         </TouchableOpacity>
       </View>

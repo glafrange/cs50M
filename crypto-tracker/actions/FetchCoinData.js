@@ -15,7 +15,6 @@ export default function FetchCoinData() {
     fetch(apiUrlStart + state.tickerList.tickers.join(",") + apiUrlEnd)
       .then(res => res.json())
       .then(res => {
-        // console.log(res);
         dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: Object.keys(res).map(key => {
           return {ticker: key, price: res[key].USD};
         })})

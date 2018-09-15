@@ -37,8 +37,7 @@ class CryptoList extends React.Component {
 }
 
 function mapStateToProps (state) {
-  // console.log(state.tickerList.tickers);
-  return { crypto: state.crypto, tickerList: state.tickerList }
+  return { crypto: state.crypto }
 }
 
 export default connect(mapStateToProps, { FetchCoinData })(CryptoList)
