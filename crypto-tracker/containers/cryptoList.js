@@ -29,7 +29,7 @@ class CryptoList extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{paddingTop:20, paddingBottom: 100}}>
+      <ScrollView style={{paddingTop:20}}>
         {this.renderListItems()}
       </ScrollView>
     );

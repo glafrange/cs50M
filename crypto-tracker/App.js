@@ -14,7 +14,8 @@ const AppNavigator = createBottomTabNavigator(
   },
   {
     initialRouteName: "CryptoList",
-    order: ["CryptoList", "AddTicker"]
+    order: ["CryptoList", "AddTicker"],
+    tabBarOptions: {style:{paddingBottom:20}}
   }
 )
 

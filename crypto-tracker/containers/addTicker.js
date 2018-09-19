@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { createStore } from 'redux';
+
+// actions
 import AddNewTicker from '../actions/AddNewTicker';
 import FetchCoinData from '../actions/FetchCoinData';
 
@@ -14,10 +16,8 @@ class AddTicker extends React.Component {
   render() {
     return (
       <View>
-        <TextInput style={{paddingTop: 50}} onChangeText={(text) => this.setState({text: text.toUpperCase()})}/>
-        <TouchableOpacity onPress={this.submitTicker}>
-          <Text>AddTicker</Text>
-        </TouchableOpacity>
+        <TextInput style={{marginTop: 25, paddingHorizontal: 5, paddingBottom: 20, marginBottom: 50, borderColor:"black", borderWidth:1}} onChangeText={(text) => this.setState({text: text.toUpperCase()})}/>
+        <Button title="AddTicker" onPress={this.submitTicker} />
       </View>
     )
   }
