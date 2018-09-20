@@ -40,4 +40,11 @@ function mapStateToProps (state) {
   return { crypto: state.crypto }
 }
 
-export default connect(mapStateToProps, { FetchCoinData })(CryptoList)
+export default connect(mapStateToProps, { FetchCoinData })(CryptoList);
+
+const styles = StyleSheet.create({
+  listContainer: {
+    flex: 1,
+    flexDirection: "column"
+  }
+});
