@@ -1,39 +1,49 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 const CryptoListItem = (props) => {
-  const {ticker, price} = props.cryptoData;
-  const iconPath = "https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/" + ticker.toLowerCase() + '.png';
+  const {TICKER, PRICE} = props.cryptoData;
+  const iconPath = "https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/" + TICKER.toLowerCase() + ".png";
   return (
     <View style={styles.container}>
-      <Image 
-        source={{uri: iconPath}}
-        style={{width: 50, height: 50}}
-      />
-      <Text>
-        {ticker} : {price}
-      </Text>
+      <View style={styles.upperRow}>
+        <View style={styles.iconContainer}>
+          <Image 
+            source={{uri: iconPath}}
+            style={styles.icon}
+          />
+        </View>
+        <View style={styles.textInfoContainer}>
+          <Text>{TICKER}</Text>   
+          <Text>{PRICE}</Text>
+        </View>
+      </View>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
     borderBottomWidth: 1,
     borderRadius: 1,
-    borderColor: 'black'
+    borderColor: "black",
+  },
+  iconContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center"
   },
   icon: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start'
+    height: 30,
+    width: 30
   },
-  textInfo: {
-    flex: 3,
-    flexDirection: 'row',
-    justifyContent: 'center'
+  textInfoContainer: {
+    flex: 4,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center"
   }
 });
 

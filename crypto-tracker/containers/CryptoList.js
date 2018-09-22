@@ -29,7 +29,7 @@ class CryptoList extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{paddingTop:20}}>
+      <ScrollView style={styles.listContainer}>
         {this.renderListItems()}
       </ScrollView>
     );
@@ -44,7 +44,9 @@ export default connect(mapStateToProps, { FetchCoinData })(CryptoList);
 
 const styles = StyleSheet.create({
   listContainer: {
-    flex: 1,
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: "column",
+    alignSelf: 'stretch',
+    paddingTop: 20
   }
 });
